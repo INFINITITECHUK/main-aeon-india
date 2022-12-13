@@ -1,5 +1,5 @@
 #FROM node:12.17.0-alpine
-FROM FROM node:14 AS development
+FROM node:14 AS development
 
 WORKDIR /opt/oracle/
 COPY ./instantclient-basic-linux.x64-21.1.0.0.0.zip .
