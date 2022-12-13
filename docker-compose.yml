@@ -1,0 +1,51 @@
+version: '3.5'
+
+services:
+    #######################################
+    # Customer Service
+    #######################################
+    customer-service:
+        container_name: customer-service
+        env_file: "env/${ENV}.env"
+        build:
+            context: "."
+        image: customer-service
+        command: npm run start:prod
+        depends_on:
+        - db_customer
+        networks:
+        - lms-net
+        ports:
+        - "4058:4021"
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        restart: unless-stopped
+
+
+    #######################################
+    # database
+    #######################################
+    db_customer:
+        container_name: db_customer
+        env_file: "env/${ENV}.env"
+        image: postgres:9.6
+        volumes:
+            - "customer_db_volume:/var/lib/postgresql/data"
+        ports:
+            - "4059:5432"
+        networks:
+            - lms-net
+        restart: unless-stopped
+
+networks:
+        lms-net:
+            name: lms-network
+            ipam:
+                driver: default
+                config:
+                    - subnet: "172.16.238.0/24"
+                    - subnet: "2001:3984:3989::/64"
+
+volumes:
+    customer_db_volume:

@@ -1,0 +1,16 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@nestjs/swagger > lodash':
+        patched: '2020-05-01T03:07:51.903Z'
+    - '@nestjs/cli > inquirer > lodash':
+        patched: '2020-05-01T03:07:51.903Z'
+    - nestjs-minio > minio > lodash:
+        patched: '2020-05-01T03:07:51.903Z'
+    - '@nestjs/cli > @angular-devkit/schematics-cli > inquirer > lodash':
+        patched: '2020-05-01T03:07:51.903Z'
+    - bull > lodash:
+        patched: '2020-08-04T07:50:56.656Z'

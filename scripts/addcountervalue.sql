@@ -1,0 +1,1 @@
+INSERT INTO public."Counter" (id, is_obsolete, modified_on, idx, reference_id_counter, loan_id_counter, is_active, created_on) VALUES (DEFAULT, DEFAULT, DEFAULT, DEFAULT, '10000000', '1000000', DEFAULT, DEFAULT)
